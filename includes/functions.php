@@ -119,7 +119,9 @@ function getBlogPost($id) {
         die("Database connection failed.");
     }
     
-    $sql = "SELECT * FROM blog_posts WHERE id = " . (int)$id;
+    $id = (int)$id; // Ensure ID is an integer for security
+    
+    $sql = "SELECT * FROM blog_posts WHERE id = $id";
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
@@ -161,29 +163,4 @@ function formatDate($date) {
     $timestamp = strtotime($date);
     return date('d F Y', $timestamp);
 }
-
 ?>
-
-// Function to get a blog post by ID
-function getBlogPost($id) {
-    global $conn;
-    
-    if (!$conn) {
-        die("Database connection failed.");
-    }
-    
-    $id = (int)$id; // Ensure ID is an integer for security
-    
-    $sql = "SELECT * FROM blog_posts WHERE id = $id";
-    $result = mysqli_query($conn, $sql);
-
-    if (!$result) {
-        die("Query failed: " . mysqli_error($conn));
-    }
-
-    if (mysqli_num_rows($result) > 0) {
-        return mysqli_fetch_assoc($result);
-    }
-
-    return null;
-}
