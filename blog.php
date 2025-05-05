@@ -6,16 +6,17 @@ $extraJs = ['blog.js', 'particles.js'];
 include_once 'includes/config.php';
 include_once 'includes/functions.php';
 
-// Mendapatkan kategori filter
+// Get filter category
 $category = isset($_GET['category']) ? $_GET['category'] : 'all';
 
-// Mendapatkan semua blog post
+// Get all blog posts
 $posts = getBlogPosts($category);
 
 include_once 'includes/header.php';
 ?>
 
 <section class="blog-hero">
+    <div id="particles-js"></div>
     <div class="container">
         <h1>Blog</h1>
         <p>Berbagi pengetahuan dan pengalaman seputar teknologi dan pengembangan web</p>

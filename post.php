@@ -2,13 +2,13 @@
 include_once 'includes/config.php';
 include_once 'includes/functions.php';
 
-// Mendapatkan ID post dari parameter URL
-$postId = isset($_GET['id']) ? $_GET['id'] : 0;
+// Get post ID from URL parameter
+$postId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Mendapatkan data post
+// Get post data
 $post = getBlogPost($postId);
 
-// Redirect jika post tidak ditemukan
+// If post not found, redirect to blog page
 if (!$post) {
     header('Location: blog.php');
     exit;
@@ -18,19 +18,19 @@ $pageTitle = $post['title'] . ' - Portfolio Russell Imanuel Ruru';
 $extraCss = ['blog.css'];
 $extraJs = ['blog.js'];
 
-// Mendapatkan post sebelumnya dan selanjutnya
+// Get previous and next posts
 $prevPost = null;
 $nextPost = null;
 
 $sql = "SELECT id, title FROM blog_posts WHERE id < $postId ORDER BY id DESC LIMIT 1";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
     $prevPost = mysqli_fetch_assoc($result);
 }
 
 $sql = "SELECT id, title FROM blog_posts WHERE id > $postId ORDER BY id ASC LIMIT 1";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
     $nextPost = mysqli_fetch_assoc($result);
 }
 
@@ -95,6 +95,57 @@ include_once 'includes/header.php';
                 </div>
             </div>
         </article>
+        
+        <div class="related-posts">
+            <h2>Artikel Terkait</h2>
+            <div class="related-posts-grid">
+                <?php
+                // Get related posts by category
+                $relatedPosts = [];
+                $category = $post['category'];
+                $sql = "SELECT id, title, image, created_at FROM blog_posts 
+                        WHERE category = '$category' AND id != $postId 
+                        ORDER BY created_at DESC LIMIT 3";
+                $result = mysqli_query($conn, $sql);
+                
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $relatedPosts[] = $row;
+                    }
+                }
+                
+                // If not enough related posts by category, get posts by newest
+                if (count($relatedPosts) < 3) {
+                    $limit = 3 - count($relatedPosts);
+                    $sql = "SELECT id, title, image, created_at FROM blog_posts 
+                            WHERE id != $postId AND category != '$category' 
+                            ORDER BY created_at DESC LIMIT $limit";
+                    $result = mysqli_query($conn, $sql);
+                    
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $relatedPosts[] = $row;
+                        }
+                    }
+                }
+                
+                // Display related posts
+                foreach ($relatedPosts as $relatedPost):
+                ?>
+                <div class="related-post">
+                    <a href="post.php?id=<?php echo $relatedPost['id']; ?>">
+                        <div class="related-post-img">
+                            <img src="assets/images/blog/<?php echo $relatedPost['image']; ?>" alt="<?php echo $relatedPost['title']; ?>">
+                        </div>
+                        <div class="related-post-content">
+                            <h3><?php echo $relatedPost['title']; ?></h3>
+                            <span class="related-post-date"><?php echo formatDate($relatedPost['created_at']); ?></span>
+                        </div>
+                    </a>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 </section>
 

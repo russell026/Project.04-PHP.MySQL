@@ -653,3 +653,113 @@
         justify-content: center;
     }
 }
+
+/* CSS for Related Posts Section */
+
+.related-posts {
+    margin-top: 60px;
+    background-color: var(--light-background);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.related-posts h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    position: relative;
+}
+
+.related-posts h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.related-post {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.related-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.related-post a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.related-post-img {
+    height: 150px;
+    overflow: hidden;
+}
+
+.related-post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.related-post:hover .related-post-img img {
+    transform: scale(1.1);
+}
+
+.related-post-content {
+    padding: 15px;
+}
+
+.related-post-content h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.related-post:hover .related-post-content h3 {
+    color: var(--primary-color);
+}
+
+.related-post-date {
+    font-size: 12px;
+    color: var(--light-text);
+    display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .related-posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .related-posts {
+        padding: 30px 20px;
+    }
+    
+    .related-posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-post-img {
+        height: 180px;
+    }
+}
