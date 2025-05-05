@@ -24,7 +24,7 @@ include_once 'includes/header.php';
         <div class="hero-text">
             <h2>Selamat Datang di Portfolio Saya</h2>
             <h3 id="typing-text"></h3>
-            <p>Saya Russell Imanuel Ruru, mahasiswa Teknik Informatika yang bersemangat dalam pengembangan web dan teknologi.</p>
+            <p>Selamat datang di portfolio saya! Saya Russell Imanuel Ruru, mahasiswa Program Studi Informatika di Fakultas Teknik, Universitas Sam Ratulangi. Saya memiliki minat yang mendalam dalam pengembangan web dan teknologi, dan bersemangat untuk terus belajar dan berkembang di bidang ini. Di halaman ini, Anda dapat menemukan beberapa hasil dari projek yang saya buat.</p>
             <div class="cta-buttons">
                 <a href="contact.php" class="btn-primary">Hubungi Saya</a>
                 <a href="gallery.php" class="btn-secondary">Lihat Karya</a>

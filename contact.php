@@ -65,7 +65,7 @@ include_once 'includes/header.php';
                 <p>Silakan hubungi saya melalui form atau menggunakan informasi kontak di bawah ini. Saya akan membalas pesan Anda secepatnya.</p>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">E</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Email</h3>
                         <p><a href="mailto:russellruru026@student.unsrat.ac.id">russellruru026@student.unsrat.ac.id</a></p>
@@ -73,7 +73,7 @@ include_once 'includes/header.php';
                 </div>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">P</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Telepon</h3>
                         <p><a href="tel:+6281234567890">+62 812 3456 7890</a></p>
@@ -81,7 +81,7 @@ include_once 'includes/header.php';
                 </div>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">L</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Lokasi</h3>
                         <p>Manado, Indonesia</p>
@@ -98,7 +98,7 @@ include_once 'includes/header.php';
                 <p>Silakan hubungi saya melalui form atau menggunakan informasi kontak di bawah ini. Saya akan membalas pesan Anda secepatnya.</p>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">E</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Email</h3>
                         <p><a href="mailto:russellruru026@student.unsrat.ac.id">russellruru026@student.unsrat.ac.id</a></p>
@@ -106,7 +106,7 @@ include_once 'includes/header.php';
                 </div>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">P</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Telepon</h3>
                         <p><a href="tel:+6281234567890">+62 812 3456 7890</a></p>
@@ -114,7 +114,7 @@ include_once 'includes/header.php';
                 </div>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">L</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Lokasi</h3>
                         <p>Manado, Indonesia</p>
@@ -122,7 +122,7 @@ include_once 'includes/header.php';
                 </div>
                 
                 <div class="contact-method">
-                    <div class="contact-icon">S</div>
+                    <div class="contact-icon"></div>
                     <div class="contact-details">
                         <h3>Media Sosial</h3>
                         <p>
